@@ -21,6 +21,22 @@ class RemindersController < ApplicationController
   def edit
   end
 
+  def generate_reminder
+    account_sid = ENV['ACCOUNT_SID']
+    auth_token = ENV['AUTH_TOKEN']
+    binding.pry
+
+    # set up a client to talk to the Twilio REST API
+    @client = Twilio::REST::Client.new account_sid, auth_token
+
+    @client.account.messages.create({
+                                      :from => '+19787889381',
+                                      :to => @reminder.phone,
+                                      :body => @reminder.message
+    })
+
+  end
+
   # POST /reminders
   # POST /reminders.json
   def create
@@ -28,6 +44,7 @@ class RemindersController < ApplicationController
 
     respond_to do |format|
       if @reminder.save
+        generate_reminder
         format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }
         format.json { render :show, status: :created, location: @reminder }
       else
@@ -62,13 +79,13 @@ class RemindersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reminder
-      @reminder = Reminder.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reminder
+    @reminder = Reminder.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def reminder_params
-      params.require(:reminder).permit(:message, :reminder_time, :phone)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def reminder_params
+    params.require(:reminder).permit(:message, :reminder_time, :phone)
+  end
 end
