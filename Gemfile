@@ -29,6 +29,17 @@ gem 'spring',        group: :development
 gem 'clockwork'
 gem 'foreman'
 
+group :development, :test do
+  gem 'pry'
+  gem 'pry-rescue'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
+
+  gem 'minitest-rails'
+  gem 'minitest-reporters'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,4 +51,3 @@ gem 'foreman'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
