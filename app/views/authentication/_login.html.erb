@@ -1,0 +1,6 @@
+<% if current_user %>
+	Logged in as: <%= current_user.name %>
+	<%= link_to "signout", controller: :authentication, action: :destroy %>
+<% else %>
+	<%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+<% end %>
