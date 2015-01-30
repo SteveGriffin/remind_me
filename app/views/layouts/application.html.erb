@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+      <div class="jumbotron">
+        <h1>RemindMe</h1>
+        <p>RemindMe will send you an SMS message to remind you of important events or appointments.</p>
+      </div>
+      <div>
+		<%= yield %>
+	  </div>
 
-<%= yield %>
-
+</div>
 </body>
 </html>

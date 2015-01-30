@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets"
- @import "bootstrap"
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
+#message {
+	width: 500px;
+	height: 150px;
+}
+
+#datetime {
+	width: 100px;
+	height:10px;
+	font-size:10px;
+}
