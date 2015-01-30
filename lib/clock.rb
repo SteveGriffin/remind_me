@@ -1,9 +1,14 @@
 require 'clockwork'
+require './config/boot'
+require './config/environment'
+
+
 module Clockwork
   handler do |job|
     puts "Running #{job}"
     
-
+    #puts ENV['ACCOUNT_SID']
+    Reminder.check_reminders
   end
 
   # handler receives the time when job is prepared to run in the 2nd argument
