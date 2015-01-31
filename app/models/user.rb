@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :reminders
 
 
   #create user with credentials supplied by oauth

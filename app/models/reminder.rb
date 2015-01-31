@@ -1,4 +1,5 @@
 class Reminder < ActiveRecord::Base
+  belongs_to :user
 
   def self.check_reminders
     active = Reminder.all.where(active: :true)

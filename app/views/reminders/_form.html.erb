@@ -23,6 +23,7 @@
 
     <%= f.text_field :phone, control_col: "col-md-9" %>
   </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
