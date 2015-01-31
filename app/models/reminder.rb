@@ -1,4 +1,6 @@
 class Reminder < ActiveRecord::Base
+  validates :message, :phone, presence: true
+  
   belongs_to :user
 
   def self.check_reminders
