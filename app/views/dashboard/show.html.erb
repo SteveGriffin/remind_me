@@ -1,0 +1,5 @@
+<h1>Dashboard</h1>
+<%= render partial: 'new_reminder', locals: { reminder: Reminder.new }%>
+<% if current_user.reminders != nil %>
+	<%= render partial: 'reminders', locals: {reminders: current_user.reminders }%> 
+<% end %>

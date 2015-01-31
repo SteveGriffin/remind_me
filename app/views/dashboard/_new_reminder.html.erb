@@ -1,0 +1,30 @@
+<%= bootstrap_form_for(reminder, layout: :inline) do |f| %>
+  <% if reminder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reminder.errors.count, "error") %> prohibited this reminder from being saved:</h2>
+
+      <ul>
+      <% reminder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%= f.text_field :message, id: 'message', maxlength: 160 %>
+  </div>
+  <div class="field">
+
+    <%= f.datetime_select :reminder_time, ampm: true, default: Time.now %>
+  </div>
+  <div class="field">
+
+    <%= f.text_field :phone, control_col: "col-md-9" %>
+  </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

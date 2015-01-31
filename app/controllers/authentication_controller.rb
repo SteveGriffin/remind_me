@@ -12,7 +12,7 @@ class AuthenticationController < ApplicationController
       else
       	session[:admin] = false
       end
-      redirect_to new_reminder_path, :notice => "Signed in!"
+      redirect_to dashboard_path(user.id), :notice => "Signed in!"
       #binding.pry
     rescue Exception => e
       redirect_to root_url, :notice => e.to_s
