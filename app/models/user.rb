@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :reminders
+  validates_uniqueness_of :email
 
 
   #create user with credentials supplied by oauth
