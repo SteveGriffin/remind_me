@@ -31,10 +31,10 @@ class RemindersController < ApplicationController
     respond_to do |format|
       if @reminder.save
         #Reminder.generate_reminder(@reminder)
-        format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }
+        format.html { redirect_to dashboard_path(current_user.id), notice: 'Reminder was successfully created.' }
         format.json { render :show, status: :created, location: @reminder }
       else
-        format.html { render :new }
+        format.html { redirect_to dashboard_path(current_user.id), notice: 'All fields must be filled out correctly' }
         format.json { render json: @reminder.errors, status: :unprocessable_entity }
       end
     end

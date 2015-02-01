@@ -21,7 +21,7 @@
   </div>
   <div class="field">
 
-    <%= f.text_field :phone, control_col: "col-md-9" %>
+    <%= f.telephone_field :phone %>
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/signout" => "authentication#destroy", :as => :signout
 
   get 'dashboard/:id' => 'dashboard#show', :as => :dashboard
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
