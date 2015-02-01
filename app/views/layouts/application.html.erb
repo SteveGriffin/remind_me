@@ -6,27 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+
+
 </head>
 <body>
 <div class="container">
       <div class="jumbotron">
         <h1>RemindMe</h1>
         <p>RemindMe will send you an SMS message to remind you of important events or appointments.</p>
-        	<div class="row">
-	<span id="signinButton">
-
-	  <span
-	    class="g-signin"
-	    data-callback="/auth/google_auth2"
-	    data-clientid= "28404032550-it7sduvmssbq0hl278f66e2igkrmr2bh.apps.googleusercontent.com"
-	    data-cookiepolicy="single_host_origin"
-	    data-requestvisibleactions="http://schema.org/AddAction"
-	    data-scope="https://www.googleapis.com/auth/plus.login">
-
-	  </span>
-	</span>
-	<%= render partial: 'authentication/login'%>
-	</div>
+        <div class="row">
+			<%= render partial: 'authentication/login'%>
+		</div>
       </div>
       <div>
 		<%= yield %>
