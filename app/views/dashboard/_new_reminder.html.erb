@@ -24,6 +24,14 @@
 
     <%= f.telephone_field :phone %>
   </div>
+    <div class="field">
+      <%= f.label "Check to receive a voice call of your transcribed message."%>
+    <%= f.check_box :call %>
+  </div>
+      <div class="field">
+      <%= f.label "Check to receive an SMS reminder message."%>
+    <%= f.check_box :sms, checked: true %>
+  </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>

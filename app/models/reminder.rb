@@ -4,7 +4,7 @@ class Reminder < ActiveRecord::Base
   belongs_to :user
 
   def self.check_reminders
-    active = Reminder.all.where(active: :true)
+    active = Reminder.where(active: true)
 
     if active.count < 1
       puts "No Reminders To Be Sent"
@@ -36,20 +36,22 @@ class Reminder < ActiveRecord::Base
       @client.account.messages.create({
                                         :from => '+19787889381',
                                         :to => reminder.phone,
-                                        :body => reminder.message
+                                        :body => 'RemindMe Service Reminder: ' << reminder.message
       })
     end
 
     #send a phone notification if reminder has phone call notification
     if reminder.call == true
+    	#binding.pry
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new account_sid, auth_token
 
       #setup custom xml document for notification - TBD
       @call = @client.account.calls.create({
-                                             :url => 'http://demo.twilio.com/docs/voice.xml',
+                                             :url => 'http://507b6c6f.ngrok.com/twilio/voice/' << reminder.id.to_s,
                                              :from => '+19787889381',
-                                             :to =>  reminder.phone
+                                             :to =>  reminder.phone,
+                                             :IfMachine => 'Continue'
       })
     end
 
@@ -59,9 +61,21 @@ class Reminder < ActiveRecord::Base
 
 
 
-  def self.test
-    puts ENV['ACCOUNT_SID']
-    puts ENV['AUTH_TOKEN']
-  end
+  # def self.test
+  #   puts ENV['ACCOUNT_SID']
+  #   puts ENV['AUTH_TOKEN']
+  #   account_sid = ENV['ACCOUNT_SID']
+  #   auth_token = ENV['AUTH_TOKEN']
+  #   # set up a client to talk to the Twilio REST API
+  #   @client = Twilio::REST::Client.new account_sid, auth_token
+
+  #   #setup custom xml document for notification - TBD
+  #   @call = @client.account.calls.create({
+  #                                          :url => 'http://507b6c6f.ngrok.com/twilio/voice',
+  #                                          :from => '+19787889381',
+  #                                          :to =>  '6037038270'
+  #   })
+
+  # end
 
 end
