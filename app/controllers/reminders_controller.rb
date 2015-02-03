@@ -5,6 +5,7 @@ class RemindersController < ApplicationController
   # GET /reminders
   # GET /reminders.json
   def index
+    admin?
     @reminders = Reminder.all
   end
 
@@ -27,6 +28,8 @@ class RemindersController < ApplicationController
   # POST /reminders.json
   def create
     @reminder = Reminder.new(reminder_params)
+
+    @reminder.phone = @reminder.phone.gsub(/[^0-9]/, "")
 
     respond_to do |format|
       if @reminder.save
