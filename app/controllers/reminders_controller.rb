@@ -29,8 +29,6 @@ class RemindersController < ApplicationController
   def create
     @reminder = Reminder.new(reminder_params)
 
-    @reminder.phone = @reminder.phone.gsub(/[^0-9]/, "")
-
     respond_to do |format|
       if @reminder.save
         #Reminder.generate_reminder(@reminder)

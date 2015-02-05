@@ -21,7 +21,7 @@
     <%= f.datetime_select :reminder_time, ampm: true, default: Time.now %>
   </div>
   <div class="field">
-    <%= f.telephone_field :phone %>
+    <%= f.telephone_field :phone, value: current_user.phone, readonly: true %>
 
   </div>
     <div class="field">

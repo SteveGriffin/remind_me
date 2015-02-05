@@ -1,4 +1,4 @@
-<h1>Your Current Reminders</h1>
+<h1>Your Pending Reminders</h1>
 
 <table>
   <thead>
@@ -13,14 +13,15 @@
 
   <tbody>
     <% reminders.each do |reminder| %>
-      <tr>
-        <td><%= reminder.message %></td>
-        <td><%= reminder.reminder_time %></td>
-        <td><%= reminder.phone %></td>
-        <td><%= link_to 'Show', reminder %></td>
-        <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
-        <td><%= link_to 'Delete Reminder', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if reminder.active %>
+        <tr>
+          <td><%= reminder.message %></td>
+          <td><%= reminder.reminder_time %></td>
+          <td><%= link_to 'Show', reminder %></td>
+          <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
+          <td><%= link_to 'Delete Reminder', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

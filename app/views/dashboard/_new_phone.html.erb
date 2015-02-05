@@ -1,0 +1,24 @@
+<h3>To get started, please enter a telephone number that you would like to use to receive SMS and voice reminder notifications</h3>
+<% @user = current_user %>
+<%= form_for @user, url: {:action => 'update_user_phone'} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Phone Number" %>
+    <%= f.text_field :phone %>
+  </div>
+    <div class="actions">
+    <%= f.submit "Update Phone Number" %>
+  </div>
+
+<% end %>

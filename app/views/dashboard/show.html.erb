@@ -1,7 +1,13 @@
 <h1>Dashboard</h1>
 <p id="notice"><%= notice %></p>
 
+<% if user_has_phone? %>
+
 <%= render partial: 'new_reminder', locals: { reminder: Reminder.new }%>
 <% if current_user.reminders != nil %>
 	<%= render partial: 'reminders', locals: {reminders: current_user.reminders }%> 
 <% end %>
+<% else %>
+	<%= render partial: 'new_phone'%>
+<% end %>
+

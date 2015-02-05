@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   post 'twilio/voice/:id' => 'twilio#voice'
 
+  patch 'dashboard/:id/update_user_phone' => 'dashboard#update_user_phone'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -28,4 +28,10 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  #remove any non numeric elements from phone number
+  def self.sanitize_phone(phone_number)
+    phone = phone_number.gsub!(/[^0-9]/, "")
+    phone
+  end
 end
