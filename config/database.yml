@@ -21,6 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
+  host: localhost
   adapter: postgresql
   database: remind_me
   pool: 5
