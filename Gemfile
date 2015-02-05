@@ -29,6 +29,12 @@ gem 'spring',        group: :development
 gem 'clockwork'
 gem 'foreman'
 
+group :production do
+	gem 'pg'
+end
+
+gem 'unicorn'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rescue'
@@ -40,7 +46,7 @@ group :development, :test do
   gem 'minitest-reporters'
 end
 
-gem 'twilio-ruby' 
+gem 'twilio-ruby'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'bootstrap_form'
