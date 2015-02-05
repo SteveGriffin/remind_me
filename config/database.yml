@@ -25,5 +25,5 @@ production:
   database: remind_me
   pool: 5
   timeout: 5000
-  username: postgres
+  username: remindme
   password: password
