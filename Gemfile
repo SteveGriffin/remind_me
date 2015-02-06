@@ -34,6 +34,10 @@ end
 
 gem 'unicorn'
 
+group :assets do
+  gem 'turbo-sprockets-rails3'
+end
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
