@@ -48,7 +48,7 @@ class Reminder < ActiveRecord::Base
 
       #setup custom xml document for notification - TBD
       @call = @client.account.calls.create({
-                                             :url => 'http://507b6c6f.ngrok.com/twilio/voice/' << reminder.id.to_s,
+                                             :url => 'http://remindmemasterdacd.ninefold-apps.com/twilio/voice/' << reminder.id.to_s,
                                              :from => '+19787889381',
                                              :to =>  reminder.phone,
                                              :IfMachine => 'Continue'
