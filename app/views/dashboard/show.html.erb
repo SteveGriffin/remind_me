@@ -1,6 +1,6 @@
 <h1>Dashboard</h1>
 <p id="notice"><%= notice %></p>
-
+<%= user_has_phone?.inspect %>dd
 <% if user_has_phone? %>
 
 <%= render partial: 'new_reminder', locals: { reminder: Reminder.new }%>

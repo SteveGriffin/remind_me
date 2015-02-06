@@ -15,9 +15,9 @@ class DashboardController < ApplicationController
   end
 
   def update_user_phone
-    user = User.find(params[:id])
-    user.update(phone: User.sanitize_phone(params[:user][:phone]))
-    redirect_to dashboard_path(user.id)
+    current_user.update(phone: params[:user][:phone])
+    #current_user.update(phone: User.sanitize_phone(params[:user][:phone]))
+    redirect_to dashboard_path(current_user.id)
   end
 
 
