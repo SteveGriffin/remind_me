@@ -26,9 +26,10 @@ test:
   timeout: 5000
 
 production:
-  host: localhost
   adapter: postgresql
-  database: remind_me
+  host: localhost
+  encoding: unicode
+  database: remindme
   pool: 5
   timeout: 5000
   username: postgres
