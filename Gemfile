@@ -35,7 +35,7 @@ end
 gem 'unicorn'
 
 group :assets do
-  gem 'turbo-sprockets-rails3'
+  #gem 'turbo-sprockets-rails3'
 end
 
 group :development, :test do
