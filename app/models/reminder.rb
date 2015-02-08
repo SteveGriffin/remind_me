@@ -47,7 +47,7 @@ class Reminder < ActiveRecord::Base
       @client = Twilio::REST::Client.new account_sid, auth_token
 
       #use different url for testing and production
-      if RAILS_ENV = "development"
+      if RAILS_ENV == "development"
               #setup custom xml document for notification - TBD
       @call = @client.account.calls.create({
                                              :url => 'http://b7b6c37.ngrok.com/twilio/voice/' << reminder.id.to_s,
