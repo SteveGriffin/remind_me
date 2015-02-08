@@ -42,17 +42,30 @@ class Reminder < ActiveRecord::Base
 
     #send a phone notification if reminder has phone call notification
     if reminder.call == true
-    	#binding.pry
+      #binding.pry
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new account_sid, auth_token
 
-      #setup custom xml document for notification - TBD
+      #use different url for testing and production
+      if RAILS_ENV = "development"
+              #setup custom xml document for notification - TBD
       @call = @client.account.calls.create({
-                                             :url => 'http://remindmemasterdacd.ninefold-apps.com/twilio/voice/' << reminder.id.to_s,
+                                             :url => 'http://b7b6c37.ngrok.com/twilio/voice/' << reminder.id.to_s,
                                              :from => '+19787889381',
                                              :to =>  reminder.phone,
                                              :IfMachine => 'Continue'
       })
+
+      else
+              #setup custom xml document for notification - TBD
+      @call = @client.account.calls.create({
+                                             :url => 'http://futuretide.net/twilio/voice/' << reminder.id.to_s,
+                                             :from => '+19787889381',
+                                             :to =>  reminder.phone,
+                                             :IfMachine => 'Continue'
+      })
+      end
+
     end
 
   end
