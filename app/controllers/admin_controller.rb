@@ -1,5 +1,8 @@
 class AdminController < ApplicationController
 
+  def index
+  end
+
   #authentication for admin user
   def authenticate
     if session[:admin] == true
@@ -7,7 +10,7 @@ class AdminController < ApplicationController
     end
 
     user = User.find_by(email: params[:email])
-    if user && user.admin == true 
+    if user && user.admin == true && user.authenticate(params[:password])
       session[:user_id] = user.id
       session[:admin] = user.admin
       redirect_to admin_dashboard_path

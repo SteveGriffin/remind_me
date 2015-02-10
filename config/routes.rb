@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   patch 'dashboard/:id/update_user_phone' => 'dashboard#update_user_phone'
 
+  get 'admin' => 'admin#login'
+  post 'admin' => 'admin#authenticate'
+  get '/admin/panel' => 'admin#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

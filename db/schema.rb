@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20150210010402) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",     default: true
-    t.boolean  "admin",      default: false
+    t.boolean  "active",          default: true
+    t.boolean  "admin",           default: false
     t.string   "phone"
-    t.string   "password"
+    t.string   "password_digest"
   end
 
 end

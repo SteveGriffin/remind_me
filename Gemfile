@@ -60,7 +60,7 @@ gem 'omniauth-github', '1.1.2'
 gem "omniauth-google-oauth2"
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
