@@ -1,0 +1,19 @@
+<div class="form-wrapper">
+<h2>Login</h2>
+<% flash.each do |k, v| %>
+<div class="alert"><%= v %></div>
+<% end %>
+<%= form_tag @user do %>
+<div class="field">
+<label>Email</label>
+<%= text_field_tag :email, params[:email] %>
+</div>
+<div class="field">
+<label>Password</label>
+<%= password_field_tag :password %>
+</div>
+<div class="field">
+<%= submit_tag "Login" %>
+</div>
+<% end %>
+</div>

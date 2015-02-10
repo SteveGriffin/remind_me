@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203220542) do
+ActiveRecord::Schema.define(version: 20150210010402) do
 
   create_table "reminders", force: true do |t|
     t.string   "message"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150203220542) do
     t.boolean  "active",     default: true
     t.boolean  "admin",      default: false
     t.string   "phone"
+    t.string   "password"
   end
 
 end
