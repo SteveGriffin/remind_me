@@ -8,6 +8,7 @@ class TwilioController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
+  #handles transcribed phone call message
   def voice
     reminder = Reminder.find(params[:id])
   	response = Twilio::TwiML::Response.new do |r|

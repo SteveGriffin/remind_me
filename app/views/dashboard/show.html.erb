@@ -5,6 +5,7 @@
 <%= render partial: 'new_reminder', locals: { reminder: Reminder.new }%>
 <% if current_user.reminders != nil %>
 	<%= render partial: 'reminders', locals: {reminders: current_user.reminders }%> 
+	<%= render partial: 'mass_message' %>
 <% end %>
 <% else %>
 	<%= render partial: 'new_phone'%>

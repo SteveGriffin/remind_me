@@ -1,0 +1,6 @@
+<h2>Mass Message</h2>
+<p>Enter multiple numbers to send a mass message </p>
+<%= form_tag('/mass_message') do %>
+	<%= text_area(:mass_message, :text, size: "20x10") %>
+	<%= submit_tag("Send Mass Message") %>
+<% end %>

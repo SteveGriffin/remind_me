@@ -70,25 +70,9 @@ class Reminder < ActiveRecord::Base
 
   end
 
-
-
-
-
-  # def self.test
-  #   puts ENV['ACCOUNT_SID']
-  #   puts ENV['AUTH_TOKEN']
-  #   account_sid = ENV['ACCOUNT_SID']
-  #   auth_token = ENV['AUTH_TOKEN']
-  #   # set up a client to talk to the Twilio REST API
-  #   @client = Twilio::REST::Client.new account_sid, auth_token
-
-  #   #setup custom xml document for notification - TBD
-  #   @call = @client.account.calls.create({
-  #                                          :url => 'http://507b6c6f.ngrok.com/twilio/voice',
-  #                                          :from => '+19787889381',
-  #                                          :to =>  '6037038270'
-  #   })
-
-  # end
+  #mass message stub
+  def self.mass_message(message)
+    message
+  end
 
 end

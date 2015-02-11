@@ -23,6 +23,11 @@ class RemindersController < ApplicationController
   def edit
   end
 
+  #mass message
+  def mass_message
+    render plain: Reminder.mass_message("asdfasdf")
+  end
+
 
   # POST /reminders
   # POST /reminders.json
