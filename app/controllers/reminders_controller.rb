@@ -25,7 +25,19 @@ class RemindersController < ApplicationController
 
   #mass message
   def mass_message
-    render plain: Reminder.mass_message("Implementation Underway")
+    #binding.pry
+    #take numbers and split up into array
+    numbers = params[:mass_message][:numbers]
+    numbers = numbers.split
+
+    #get message
+    message = params[:mass_message][:message]
+    
+    #send message to each number, TBD
+    numbers.each do |number|
+    end
+
+    render plain:  numbers
   end
 
 
