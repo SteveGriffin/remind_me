@@ -25,7 +25,7 @@ class RemindersController < ApplicationController
 
   #mass message
   def mass_message
-    render plain: Reminder.mass_message("asdfasdf")
+    render plain: Reminder.mass_message("Implementation Underway")
   end
 
 

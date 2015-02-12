@@ -4,5 +4,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     :scope => 'email,profile'
   }
 
-  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: "user:email", provider_ignores_state: :true 
+  provider :github, ENV['REMIND_GITHUB_KEY'], ENV['REMIND_GITHUB_SECRET'], scope: "user:email", provider_ignores_state: :true 
+
 end
