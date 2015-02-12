@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   #create user with credentials supplied by oauth
   def self.create_with_omniauth(auth)
+
     if auth["provider"] == 'github'
       create! do |user|
         user.provider = auth["provider"]

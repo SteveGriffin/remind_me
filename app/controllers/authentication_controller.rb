@@ -1,6 +1,7 @@
 class AuthenticationController < ApplicationController
 
   def create
+
     auth = request.env["omniauth.auth"]
     #binding.pry
     begin

@@ -3,5 +3,4 @@
 	<%= link_to "signout", controller: :authentication, action: :destroy %>
 <% else %>
 	<%= link_to "Sign in with Google", "/auth/google_oauth2" %><br />
-	<%= link_to "Sign in with Github", "/auth/github" %>
 <% end %>
