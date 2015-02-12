@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
         user.provider = auth["provider"]
         #user.uid = auth["uid"]
         user.name = auth["info"]["nickname"]
-        #user.password = auth["uid"]
+        user.password = auth["uid"]
         user.email = auth["info"]["email"]
         user.active = true
         user.admin = false
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
         user.provider = auth["provider"]
         #user.uid = auth["uid"]
         user.name = auth["info"]["name"]
-        #user.password = auth["uid"]
+        user.password = auth["uid"]
         user.email = auth["info"]["email"]
         user.active = true
         user.admin = false
