@@ -4,7 +4,7 @@ class Reminder < ActiveRecord::Base
   belongs_to :user
 
   def self.check_reminders
-    active = Reminder.where(active: true)
+    active = Reminder.where(active: :true)
 
     if active.count < 1
       puts "No Reminders To Be Sent"

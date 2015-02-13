@@ -24,20 +24,33 @@ class RemindersController < ApplicationController
   end
 
   #mass message
+  #sends an immediate reminder out to the list of numbers
   def mass_message
     #binding.pry
     #take numbers and split up into array
     numbers = params[:mass_message][:numbers]
     numbers = numbers.split
 
-    #get message
-    message = params[:mass_message][:message]
-    
-    #send message to each number, TBD
-    numbers.each do |number|
+    #check if there are actual numbers to send the message to
+    #if not, return error message
+    if numbers.count > 0
+
+      #get message
+      message = params[:mass_message][:message]
+
+      #send message to each number, TBD
+      numbers.each do |number|
+        reminder = Reminder.create(message: message, phone: number, reminder_time: Time.now - 1.day , user_id: current_user.id, sms: true)
+        #Reminder.generate_reminder(reminder)
+        reminder.save
+      end
+
+      render plain:  "Reminders Sent"
+    else
+    	redirect_to dashboard_path(current_user.id), notice: 'You must include at least one number for a mass message.'
     end
 
-    render plain:  numbers
+
   end
 
 
