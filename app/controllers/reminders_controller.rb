@@ -35,6 +35,11 @@ class RemindersController < ApplicationController
     #if not, return error message
     if numbers.count > 0
 
+      #restrict amount of messages to be sent to a total of 5
+      if numbers.count > 5
+        redirect_to dashboard_path(current_user.id), notice: 'Maximum of 5 numbers allowed for mass messages.' and return
+      end
+
       #get message
       message = params[:mass_message][:message]
 
@@ -47,7 +52,7 @@ class RemindersController < ApplicationController
 
       render plain:  "Reminders Sent"
     else
-    	redirect_to dashboard_path(current_user.id), notice: 'You must include at least one number for a mass message.'
+      redirect_to dashboard_path(current_user.id), notice: 'You must include at least one number for a mass message.'
     end
 
 
