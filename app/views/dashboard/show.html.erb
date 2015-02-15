@@ -1,12 +1,32 @@
 <h1>Dashboard</h1>
 <p id="notice"><%= notice %></p>
-<%= request.env["omniauth.auth"].inspect %>
-<% if user_has_phone? %>
 
-<%= render partial: 'new_reminder', locals: { reminder: Reminder.new }%>
+<% if user_has_phone? %>
+<!-- <ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href=<%= render partial: 'reminders', locals: {reminders: current_user.reminders }%> >Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul> -->
+
 <% if current_user.reminders != nil %>
+    <div class="container">
+      <h2>Messaging</h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#new_reminder">New Reminder Message</button>
+      <div id="new_reminder" class="collapse out">
+      	<%= render partial: 'new_reminder', locals: { reminder: Reminder.new }%>
+      </div>
+
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#mass_message">New Mass Message</button>
+      <div id="mass_message" class="collapse out">
+      	<%= render partial: 'mass_message' %>
+      </div>
+
+    </div>
+
+
+
 	<%= render partial: 'reminders', locals: {reminders: current_user.reminders }%> 
-	<%= render partial: 'mass_message' %>
+	<!-- <%= render partial: 'mass_message' %> -->
 <% end %>
 <% else %>
 	<%= render partial: 'new_phone'%>
