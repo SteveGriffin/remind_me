@@ -2,5 +2,9 @@
 
 <%= render 'form' %>
 
+<% if session[:admin] == true %>
 <%= link_to 'Show', @reminder %> |
 <%= link_to 'Back', reminders_path %>
+<% else %>
+<%= link_to 'Back', dashboard_path(current_user.id) %>
+<% end %>

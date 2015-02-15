@@ -15,5 +15,9 @@
   <%= @reminder.phone %>
 </p>
 
-<%= link_to 'Edit', edit_reminder_path(@reminder) %> |
-<%= link_to 'Back', reminders_path %>
+<% if session[:admin] == true %>
+	<%= link_to 'Edit', edit_reminder_path(@reminder) %> |
+	<%= link_to 'Back', reminders_path %>
+<% else %>
+	<%= link_to 'Back', dashboard_path(current_user.id) %>
+<% end %>
