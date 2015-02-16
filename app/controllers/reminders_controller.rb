@@ -95,8 +95,12 @@ class RemindersController < ApplicationController
   def destroy
     @reminder.destroy
     respond_to do |format|
-      format.html { redirect_to reminders_url, notice: 'Reminder was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_user.admin == true
+        format.html { redirect_to reminders_url, notice: 'Reminder was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+      	format.html { redirect_to dashboard_path(current_user.id), notice: 'Reminder was successfully destroyed.' }
+      end
     end
   end
 
