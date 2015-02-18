@@ -43,10 +43,17 @@ class RemindersController < ApplicationController
       #get message
       message = params[:mass_message][:message]
 
+      binding.pry
+
+      date_time = Time.new(params[:date]["year"].to_i, params[:date]["month"].to_i,
+                           params[:date]["day"].to_i, params[:date]["hour"].to_i,
+                           params[:date]["minute"].to_i)
+      binding.pry
       #send message to each number, TBD
       numbers.each do |number|
-        reminder = Reminder.create(message: message, phone: number, reminder_time: Time.now - 1.day , user_id: current_user.id, sms: true)
-        #Reminder.generate_reminder(reminder)
+        reminder = Reminder.create(message: message, phone: number, reminder_time:  date_time,
+                                   user_id: current_user.id, sms: true)
+
         reminder.save
       end
 
@@ -99,7 +106,7 @@ class RemindersController < ApplicationController
         format.html { redirect_to reminders_url, notice: 'Reminder was successfully destroyed.' }
         format.json { head :no_content }
       else
-      	format.html { redirect_to dashboard_path(current_user.id), notice: 'Reminder was successfully destroyed.' }
+        format.html { redirect_to dashboard_path(current_user.id), notice: 'Reminder was successfully destroyed.' }
       end
     end
   end

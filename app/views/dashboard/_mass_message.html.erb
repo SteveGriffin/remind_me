@@ -1,8 +1,9 @@
 <h2>Mass Message</h2>
 <p>Enter multiple numbers to send a mass message Note: Maximum of 5 numbers allowed</p>
 <%= form_tag('/mass_message') do %>
-	<%= text_area(:mass_message, :numbers, size: "20x10") %>
-	<p>Enter Message</p>
-	<%= text_area(:mass_message, :message, size: "30x2") %>
-	<%= submit_tag("Send Mass Message") %>
+<%= text_area(:mass_message, :numbers, size: "20x10") %>
+<p>Enter Message</p>
+<%= text_area(:mass_message, :message, size: "30x2") %>
+<%= select_datetime(Time.now, ampm: true) %>
+<%= submit_tag("Send Mass Message") %>
 <% end %>
