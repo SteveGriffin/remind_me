@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'reminder' => 'reminders#new'
 
-  get 'authentication/login', :as => :login
+  #get 'authentication/login', :as => :login
   get "/auth/:provider/callback/" => "authentication#create"
-  get "/auth/:provider/" => "authentication#create"
+  get "/auth/:provider/" => "authentication#create", :as => :login
   get "/signout" => "authentication#destroy", :as => :signout
 
   get 'dashboard/:id' => 'dashboard#show', :as => :dashboard

@@ -14,7 +14,7 @@
 
   <div class="field">
 
-    <%= f.text_field :message, id: 'message', maxlength: 160 %>
+    <%= f.text_area :message, maxlength: 160, hide_label: true, value: "Enter message here" %>
   </div>
   <div class="field">
 
@@ -26,7 +26,7 @@
   </div>
     <div class="field">
       <%= f.label "Check to receive a voice call of your transcribed message."%>
-    <%= f.check_box :call %>
+    <%= f.check_box :call, checked: true %>
   </div>
       <div class="field">
       <%= f.label "Check to receive an SMS reminder message."%>
