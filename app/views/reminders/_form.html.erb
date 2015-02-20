@@ -19,10 +19,13 @@
 
     <%= f.datetime_select :reminder_time, ampm: true, default: Time.now %>
   </div>
-  <div class="field">
+  <% if current_user.admin == true %>
+    <div class="field">
 
     <%= f.text_field :phone, control_col: "col-md-9" %>
   </div>
+  <% end %>
+
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>

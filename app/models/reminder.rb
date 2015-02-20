@@ -1,5 +1,7 @@
 class Reminder < ActiveRecord::Base
   validates :message, :phone, presence: true
+  validates :phone, numericality: true, length: { minimum: 7 }
+
 
   belongs_to :user
 
@@ -48,22 +50,22 @@ class Reminder < ActiveRecord::Base
 
       #use different url for testing and production
       if Rails.env.development?
-              #setup custom xml document for notification - TBD
-      @call = @client.account.calls.create({
-                                             :url => 'http://b7b6c37.ngrok.com/twilio/voice/' << reminder.id.to_s,
-                                             :from => '+19787889381',
-                                             :to =>  reminder.phone,
-                                             :IfMachine => 'Continue'
-      })
+        #setup custom xml document for notification - TBD
+        @call = @client.account.calls.create({
+                                               :url => 'http://b7b6c37.ngrok.com/twilio/voice/' << reminder.id.to_s,
+                                               :from => '+19787889381',
+                                               :to =>  reminder.phone,
+                                               :IfMachine => 'Continue'
+        })
 
       else
-              #setup custom xml document for notification - TBD
-      @call = @client.account.calls.create({
-                                             :url => 'http://futuretide.net/twilio/voice/' << reminder.id.to_s,
-                                             :from => '+19787889381',
-                                             :to =>  reminder.phone,
-                                             :IfMachine => 'Continue'
-      })
+        #setup custom xml document for notification - TBD
+        @call = @client.account.calls.create({
+                                               :url => 'http://futuretide.net/twilio/voice/' << reminder.id.to_s,
+                                               :from => '+19787889381',
+                                               :to =>  reminder.phone,
+                                               :IfMachine => 'Continue'
+        })
       end
 
     end

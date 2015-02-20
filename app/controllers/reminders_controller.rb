@@ -29,6 +29,10 @@ class RemindersController < ApplicationController
     #binding.pry
     #take numbers and split up into array
     numbers = params[:mass_message][:numbers]
+
+    #contains_invalid_chars = numbers =~ /\D/
+
+    # binding.pry
     numbers = numbers.split
 
     #check if there are actual numbers to send the message to
@@ -43,25 +47,32 @@ class RemindersController < ApplicationController
       #get message
       message = params[:mass_message][:message]
 
-      binding.pry
+      #binding.pry
 
       date_time = Time.new(params[:date]["year"].to_i, params[:date]["month"].to_i,
                            params[:date]["day"].to_i, params[:date]["hour"].to_i,
                            params[:date]["minute"].to_i)
-      binding.pry
-      #send message to each number, TBD
+     
+      #send message to each number
       numbers.each do |number|
         reminder = Reminder.create(message: message, phone: number, reminder_time:  date_time,
                                    user_id: current_user.id, sms: true)
 
-        reminder.save
+        #check validation of numbers before sending
+        #Note: wills save reminders successfully until an error has been found
+        if reminder.save
+          #continue
+        else
+          redirect_to dashboard_path(current_user.id), notice: 'Please only include valid numbers with no special characters.' and return
+        end
       end
 
-      render plain:  "Reminders Sent"
+      #return success message
+      redirect_to dashboard_path(current_user.id), notice: 'Mass message reminder submitted successfuly.'
     else
+      #return error message
       redirect_to dashboard_path(current_user.id), notice: 'You must include at least one number for a mass message.'
     end
-
 
   end
 
