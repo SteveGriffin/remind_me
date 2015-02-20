@@ -1,8 +1,6 @@
 <h1>Your Pending Reminders</h1>
-<%= reminders.inspect %><br />
-<%= reminders.count %><br  />
 
-<% if reminders.count > 0 %>
+<% if reminders.count > 0 && reminders.where(active:true).count > 0 %>
   <table>
     <thead>
       <tr>
