@@ -1,11 +1,13 @@
 <h1>Your Pending Reminders</h1>
+<%= reminders.inspect %><br />
+<%= reminders.count %><br  />
 
 <% if reminders.count > 0 %>
   <table>
     <thead>
       <tr>
         <th>Message</th>
-        <th>Reminder time</th>
+        <th>Reminder Time</th>
         <th>Phone Number</th>
 
         <th colspan="3"></th>
