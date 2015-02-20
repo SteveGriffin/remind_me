@@ -38,7 +38,7 @@ class Reminder < ActiveRecord::Base
       @client.account.messages.create({
                                         :from => '+19787889381',
                                         :to => reminder.phone,
-                                        :body => 'RemindMe Service Reminder: ' << reminder.message
+                                        :body => 'Remio Service Reminder: ' << reminder.message
       })
     end
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RemindMe</title>
+  <title>Remio.me</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,8 +12,8 @@
 <body>
 <div class="container">
       <div class="jumbotron">
-        <h1>RemindMe</h1>
-        <p>RemindMe will send you an SMS message to remind you of important events or appointments.</p>	
+        <h1>Remio</h1>
+        <p>Remio will send you an SMS message to remind you of important events or appointments.</p>	
 
       </div>
       <div>
@@ -28,7 +28,7 @@
                 <li><%= link_to "Sign in with Google", login_path("google_oauth2") %></li>
         <% end%>
 
-        <li><%= link_to "About",'#', onclick:'alert("RemindMe is a minimalist service that will text or voice message you with a reminder at the time you schedule.")'  %></li>
+        <li><%= link_to "About",'#', onclick:'alert("Remio is a minimalist service that will text or voice message you with a reminder at the time you schedule.")'  %></li>
       </ul>
     </div>
   </div>
