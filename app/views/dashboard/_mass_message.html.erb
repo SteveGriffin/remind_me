@@ -6,5 +6,8 @@
 <p>Enter Message</p>
 <%= text_area(:mass_message, :message, size: "30x2") %><br />
 <%= select_datetime(Time.now, ampm: true) %><br /><br />
-<%= submit_tag("Send Mass Message") %>
+<%= submit_tag "Send Mass Message", class: 'btn btn-info' %>
+<br />
+<br />
+
 <% end %>
