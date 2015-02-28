@@ -1,28 +1,15 @@
-== README
+== Remio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the repository for the remio service, hosted at remio.me
 
-Things you may want to cover:
+The service is designed to send reminder messages using Twilio services, and currently has the following capabilities:
 
-* Ruby version
+* SMS messaging
 
-* System dependencies
+* Voice Messaging - Receive a voice call that reads your message back to you!
 
-* Configuration
+* Mass Messaging - Send a mass reminder to a group of friends, co-workers, etc.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Easy Google OAuth login, no personal information or passwords required
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
