@@ -49,6 +49,7 @@ group :development, :test do
 
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  gem 'rubocop'
 end
 
 gem 'twilio-ruby'
